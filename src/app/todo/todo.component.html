@@ -1,0 +1,96 @@
+
+<style>
+    .body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #ffffff;
+}
+    input{
+        box-shadow: 3px 6px 15px -10px #a0a0a0;
+        /*background-color:#fb6375;*/
+        border-radius:42px;
+        border:1px solid #fd4c61;
+        display:inline-block;
+        padding:10px 27px;
+        text-decoration:none;
+        background-color:#FFF9EC;
+        
+    }
+        .button-2 {
+        box-shadow: 3px 6px 15px -10px #a0a0a0;
+        /*background-color:#fb6375;*/
+        border-radius:42px;
+        border:4px solid #fd4c61;
+        display:inline-block;
+        /*cursor:pointer;*/
+        color: #fd4c61;
+        font-size:1em;
+        padding:10px 23px;
+        text-decoration:none;
+        border-color: transparent;
+    }
+
+    .button-2:hover {
+        background-color:#fd4c61;
+        color: #FFF9EC;
+        text-decoration:none;
+    }
+
+    .button-2:active {
+        position:relative;
+        top:1px;
+    }
+
+    .button-1 {
+        box-shadow: 3px 6px 15px -10px #a0a0a0;
+        background-color:#fb6375;
+        border-radius:42px;
+        display:inline-block;
+        /*cursor:pointer;*/
+        color: #FFF9EC;
+        font-size:1em;
+        padding:10px 23px;
+        text-decoration:none;
+    }
+
+    .button-1:hover {
+        background-color:#fd4c61;
+        color: #FFF9EC;
+        text-decoration:none;
+    }
+
+    .button-1:active {
+        position:relative;
+        top:1px;
+    }
+    h2 {
+        font-family: 'Roboto';
+        font-weight: bold;
+        font-size: 2.5em;
+        color: #5D2A42;
+    }
+    p {
+        font-family: 'Roboto';
+        font-size: 1em;
+    }
+    input{
+        font-family: 'Roboto';
+        font-size: 1em;
+    }
+</style>
+<ion-section>
+    <h2>to do liste</h2>
+  <input type="text" [(ngModel)]="inputData"><a (click)="add()" class="button-1">Ajouter</a>
+  <div *ngIf="todo.length > 0" class="body">
+    <ul *ngFor="let task of todo; index as i;">
+      <li>
+          <p>
+             {{ task }}
+           <a (click)="delete(i)" class="button-2" style="border-color:transparent;">Suprimer</a>
+         </p>
+      </li>
+    </ul>
+  </div>
+  </ion-section>
+  <router-outlet></router-outlet>

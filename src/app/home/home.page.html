@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Todolist
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="background">
+    <div class="wrapper">
+      <ion-input class="wrapper__input" [(ngModel)]="value"></ion-input>
+      <ion-button class="wrapper__button" (click)="addItem()" style=" background-color: rgb(83, 83, 83) !important;" [disabled]="value.length<2">Ajouter</ion-button>
+    </div>
+    <div class="list">
+      <div class="list__item" [class.done]="item.isDone" *ngFor="let item of items; let ind = index;">
+        {{item.value}}
+        <div>
+          <ion-checkbox class="list__item--done " style="margin-right: 10px; border-radius:10px;" (click)="setDone(ind)"></ion-checkbox>
+          <button class="btn list__item--delete" (click)="deleteItem(ind)">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
